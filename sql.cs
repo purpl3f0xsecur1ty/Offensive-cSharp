@@ -15,20 +15,20 @@ namespace SQL
             String conString = "Server = " + sqlServer + "; Database = " + database + "; Integrated Security = True;";
             SqlConnection con = new SqlConnection(conString);
 
-            WriteLine("[*] Attempting to connect to " + sqlServer + "...");
+            WriteLine($"[*] Attempting to connect to {sqlServer}.");
 
             try
             {
                 con.Open();
                 ForegroundColor = ConsoleColor.Green;
-                WriteLine("[+] Successfully authenticated to " + sqlServer + ".");
+                WriteLine($"[+] Successfully authenticated to {sqlServer}.");
                 ResetColor();
             }
             catch
             {
                 BackgroundColor = ConsoleColor.Red;
                 ForegroundColor = ConsoleColor.Black;
-                WriteLine("[!] Failed to authenticate to " + sqlServer + ".");
+                WriteLine($"[!] Failed to authenticate to {sqlServer}.");
                 ResetColor();
                 Environment.Exit(0);
             }
